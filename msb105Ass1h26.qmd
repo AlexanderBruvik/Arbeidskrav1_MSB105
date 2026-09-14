@@ -27,11 +27,7 @@ library(tinytex)
 
 ## Introduksjon
 
-Hva handler artikkelen om? Menes her presentasjonen? Hvis nei, hvilken spesifikk artikkel er det snakk om?
-
-Hva blir diskutert?
-
-Hvorfor er dette viktig?
+Artikkelen omhandler "Robust and reliable science". Den tar for seg behovet for å definere begreper som reproduserbarhet, replikerbarhet og generaliserbarhet. Å definerer disse begrepene hjelper oss å si noe om hvor sikker vi kan være på at forskningen som blir formidlet faktisk forteller det reele bildet.
 
 ## Litteraturgjennomgang
 
@@ -40,6 +36,18 @@ Smarte synspunkt om emnet fra andre.
 Bruk minst 20 siteringer. Minst 5 må være nye relevante artikler om emnet som du har funnet selv.
 
 Benytt begge siteringsmåter, dvs. «in-line» og på slutten av setningen. Prøv å variere siteringsteknikk for å få flyt i språket.
+
+Ting som må med:
+
+"Reproducing an experiment is one important approach that scientist use to gain confidence in their conclusions. Recently, the scientific community was shaken by reports that a troubling proportion of peer-reviewed preclinical studies are not reproducible" [@mcnutt2014]
+
+@jasny2011b referer til replikerbarhet som "the scientific gold standard".
+
+"Replication - The confirmation of results and conclusions from one study obtained independently in another - is considered the scientific gold standard" \^\^
+
+Finn et sitat fra @peng2011 som etterspør reproduserbarhet som "minimal requirement for publication"
+
+@bollen
 
 Example:
 
