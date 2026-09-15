@@ -27,25 +27,11 @@ library(tinytex)
 
 ## Introduksjon
 
-Artikkelen omhandler "Robust and reliable science". Den tar for seg behovet for å definere begreper som reproduserbarhet, replikerbarhet og generaliserbarhet. Å definerer disse begrepene hjelper oss å si noe om hvor sikker vi kan være på at forskningen som blir formidlet faktisk forteller det reele bildet.
+Verdien av forskninger avhenger i at den avdekket resultater som vi kan stole på, altså at funnene speiler virkeligheten. For å kunne være mer sikre på forskning vil vi snakke om reproduserbarhet, replikerbarhet og generaliserbarhet for å vurdere hvor robust forskning er.
 
 ## Litteraturgjennomgang
 
-Smarte synspunkt om emnet fra andre.
-
-Bruk minst 20 siteringer. Minst 5 må være nye relevante artikler om emnet som du har funnet selv.
-
-Benytt begge siteringsmåter, dvs. «in-line» og på slutten av setningen. Prøv å variere siteringsteknikk for å få flyt i språket.
-
-Ting som må med:
-
-"Reproducing an experiment is one important approach that scientist use to gain confidence in their conclusions. Recently, the scientific community was shaken by reports that a troubling proportion of peer-reviewed preclinical studies are not reproducible" [@mcnutt2014]
-
-@jasny2011b referer til replikerbarhet som "the scientific gold standard".
-
-"Replication - The confirmation of results and conclusions from one study obtained independently in another - is considered the scientific gold standard" \^\^
-
-Finn et sitat fra @peng2011 som etterspør reproduserbarhet som "minimal requirement for publication"
+#### Sentrale definisjoner
 
 @goodman2016b ser behov for å definerer tre ulike ting for å svare på spørsmålet "What does research reproducibility mean?".
 
@@ -55,19 +41,41 @@ Finn et sitat fra @peng2011 som etterspør reproduserbarhet som "minimal require
 
 @goodman2016b ser også behov for å forklare "Robustness and Generalizability"; "We briefly introduce these terms because they are sometimes used in lieu of the term reproducibility. Robustness refers to the stability of experimental conclusions to variations in either baseline assumptions or experimental procedures. It is somewhat related to the concept of generalizability (also known as transportability), which refers to the persistence of an effect in settings different from and outside of an experimental framework"
 
-@rosenthal1979 introduserer begrepet "File drawer problem", hvor hen problematiserer det at studier hvor nullhypotesen ikke kan forkastet har en tendens til å gå i skuffen.
+#### Problematikken
 
-Når man jobber med et signifkansnivå på 0.05 aksepterer at 1 av 20 studier vil forkaste en sann nullhypotese, en såkalt type 1 feil. Dette sett i sammenheng med "File drawer problem" gjør at man kan ofte ende opp med publikasjoner som har blitt motbevist mange ganger, men bare aldri blitt publisert.
+@rosenthal1979 introduserte i 1979 "File Drawer Problem" som tok for seg problematikken i at studier med ikke-signifikante resultater, altså studier hvor man ikke kunne forkaste null-hyptosen, ofte ikke ble publisert.
 
-Example:
+@mcnutt2014 varslet om en stor mangel i moderne forskningsliteratur og pekte på at mengden studier som ikke var reproduserbare gidde oss et behov for en kulturendring i forskning.
 
-@gentleman2003 hevder at bla bla bla. Andre mener imidlertid bla bla [@goodman2016b; @ioannidis2005b].
+@opensciencecollaboration2015 forsøkte å replikere 100 publiserte studier i tre ledende journaler innen psykology og fant at selv om 97% av de originale studiene hadde signifikante resultater, ga kun 36% av de replikerte studiene ga signifikante resultater.
+
+#### Standarder
+
+@jasny2011b omtaler replikerbarhet som "the scientific golf standard", mens @peng2011 argumentere for at reproduserbarhet bør være et minimumskrav for publisering.
+
+I økonomifeltet kan vi eksempelvis se på American Economic Association som har følgende krav til studiene de publiserer; "Prior to acceptance, authors of papers that contain empirical work, simulations, or experimental work must provide the data, code, and other details of the computations sufficient to permit replication" \[@luttmer2026}
+
+Også hos Norges største universitet kan vi se at reproduserbar forskning er en stor prioritet ved at de når søknadsfristen hos Forskningrådet nærmer seg setter opp kurs for ansatte i "hvordan man kan tilrettelegge for åpen og reproduserbar forskning" [@UIO2023]
 
 ## Diskusjon av forskningsspørsmålet (problemstillingen)
 
+Når man jobber med et signifkansnivå på 0.05 aksepterer at 1 av 20 studier vil forkaste en sann nullhypotese, en såkalt type 1 feil. Dette sett i sammenheng med "File drawer problem" gjør at man kan ofte ende opp med publikasjoner som har blitt motbevist mange ganger, men bare aldri blitt publisert.
+
 - Burde replikerbarhet være et krav eller er det å be om for mye?
+
+Replikerbarhet er en standard som ville gitt oss veldig god tiltro i forskning gjennom grundig avdekking av feil og redusering av falske positive funn. Men både @peng2011 og @goodman2016b argumentere for at reproduserbarhet bør være minimumskravet for publisering. Dette tyder på at kanskje replikerbarhet er et for strengt krav.
+
+Men å kreve replikerbarhet er vanskelig da deling av data kan være problematisk med hensyn til personvern eller andre juridiske avtaler, og deling av kode kan være problematisk med hensyn til konkurranse. Krav om
+
 - Kan Quarto dokumenter hjelpe med å oppnå reproduserbarhet?
+
+Siden Quatro dokumenter gjør det mulig å bake inn kode, versjonskontroll og dokumentasjon i et dokument er det enklere å oppnå metodens reproduserbarhet. Et godt Quatro dokument kan gjøre deling av hele arbeidsprosessen sømløst og reduserer risikoen for menneskelige feil når man forsøker å reproduserer med egen data. @peng2011 peker på en slik arbeidsmåte som et verktøy for å oppnå reproduserbarhet "Addressing this problem will require either ... or getting researchers to use other software systems that are more amenable to reproducibility"
+
 - Hvilke problem gjenstår og hvordan kan disse løses?
+
+Selv om man arbeider på en måte som i større grad gjør det mulig å reprodusere forskningen man har gjort mangler det fremdeles insentiver til å gjennomføre undersøkelser for å invaliderer eller validere andres forskning. Dette er fordi nye, positive funn ofte er foretrekkuket i konkurransen om å bli popliserbt. Endrede insentiver fra journaler og andre finansieringsinstanster kan endre dette.
+
+Kompetansen til forskerer kan også være et hinder man møter her, man kan være en formidabel forsker innen sitt felt, men mangle kunnskap om koding som gjør det vanskelig å formidle forskning gjennom data-drevne dokumenter. Dette kan løses enten med å sammerbeide med folk som kan den delen av forskning, men den faglig kompetansen kan bli tapt i sammerbeidet. Alternativt kan man se på å integrer kunnskap rundt reproduserbarhet i forskerutdanning.
 
 ## Konklusjon
 
