@@ -47,7 +47,17 @@ Ting som må med:
 
 Finn et sitat fra @peng2011 som etterspør reproduserbarhet som "minimal requirement for publication"
 
-@bollen
+@goodman2016b ser behov for å definerer tre ulike ting for å svare på spørsmålet "What does research reproducibility mean?".
+
+@goodman2016b forklarer metodens reproduserbarhet som at det gis tilstrekkelig informasjon om studiens prosedyrer og data til at de samme prosedyrene, i teori eller i praksis, kan gjentas nøyaktig.
+
+@goodman2016b forklarer resultates reproduserbarhet som et oppdatert begrep for replikerbarhet og at det referer til muligheten til å oppnå samme resultat gjennom en uavhengig studie der prosedyrene er mest mulig lik som i det opprinnelige eksperimentet.
+
+@goodman2016b ser også behov for å forklare "Robustness and Generalizability"; "We briefly introduce these terms because they are sometimes used in lieu of the term reproducibility. Robustness refers to the stability of experimental conclusions to variations in either baseline assumptions or experimental procedures. It is somewhat related to the concept of generalizability (also known as transportability), which refers to the persistence of an effect in settings different from and outside of an experimental framework"
+
+@rosenthal1979 introduserer begrepet "File drawer problem", hvor hen problematiserer det at studier hvor nullhypotesen ikke kan forkastet har en tendens til å gå i skuffen.
+
+Når man jobber med et signifkansnivå på 0.05 aksepterer at 1 av 20 studier vil forkaste en sann nullhypotese, en såkalt type 1 feil. Dette sett i sammenheng med "File drawer problem" gjør at man kan ofte ende opp med publikasjoner som har blitt motbevist mange ganger, men bare aldri blitt publisert.
 
 Example:
 
