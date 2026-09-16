@@ -16,7 +16,9 @@ format:
 #  pdf:
 #    papersize: a4
 bibliography: reproducibility.bib
-abstract: "Et kort sammendrag, en til to avsnitt."
+abstract: "Reproduserbarhet har fått økt oppmerksomhet som svar på bekymringer om en pågående replikasjonskrise og publiseringsskjevhet i flere fagfelt. I denne artikkelen diskuterer jeg hvorvidt reproduserbarhet er tilstrekkelig som kvalitetskriterium, eller om det også bør stilles krav til replikerbarhet, robusthet og generaliserbarhet. Med utgangspunkt i definisjoner fra blant annet Goodman et al.(2015) og Peng(2011) skiller jeg mellom metodens reproduserbarhet, resultatets replikerbarhet og forskningsfunns robusthet og generaliserbarhet. Videre presentere jeg empiriske funn som dokumenterer lav replikeringsrate, for eksempel Open Science Collaboration (2015), samt strukturelle problemer som «file drawer»-fenomenet.
+
+Artikkelen diskuterer eksisterende standarder og krav til datadeling og dokumentasjon, både internasjonalt og i norsk kontekst, og vurderer hvilken rolle verktøy som Quarto kan spille for å gjøre reproduserbarhet mer oppnåelig i praksis. Selv om slike verktøy kan forbedre transparens og redusere tekniske barrierer, peker jeg på at svake insentiver for replikeringsstudier og manglende kompetanse fortsatt utgjør vesentlige hindringer. Jeg konkluderer med at dersom reproduserbarhet etableres som et nødvendig minimumskrav der det er etisk og juridisk mulig vil man kunne ha større tillit til forksning. Økt fokus på replikerbarhet, robusthet og generaliserbarhet, kombinert med endringer i insentivstruktur og forskerutdanning, er avgjørende for å styrke tilliten til forskningsresultater ytterligere."
 ---
 
 ```{r}
@@ -27,33 +29,61 @@ library(tinytex)
 
 ## Introduksjon
 
-Hva handler artikkelen om? Menes her presentasjonen? Hvis nei, hvilken spesifikk artikkel er det snakk om?
-
-Hva blir diskutert?
-
-Hvorfor er dette viktig?
+Verdien av forskninger avhenger i at den avdekket resultater som vi kan stole på, altså at funnene speiler virkeligheten. For å kunne være mer sikre på forskning vil vi snakke om reproduserbarhet, replikerbarhet og generaliserbarhet for å vurdere hvor robust forskning er.
 
 ## Litteraturgjennomgang
 
-Smarte synspunkt om emnet fra andre.
+#### Sentrale definisjoner
 
-Bruk minst 20 siteringer. Minst 5 må være nye relevante artikler om emnet som du har funnet selv.
+@goodman2016b skiller mellom flere former for reproduserbarhet for å svare på spørsmålet "What does research reproducibility mean?". De definerer **metodens reproduserbarhet** som at det gis tilstrekkelig informasjon om studiens prosedyrer og data til at de samme prosedyrene, i teori eller i praksis, kan gjentas nøyaktig. Videre beskriver de **resultatets replikerbarhet** som et oppdatert begrep for replikerbarhet, og at det viser til muligheten til å oppnå samme resultat gjennom en uavhengig studie der prosedyrene er så lik som mulig den opprinnelige studien.
 
-Benytt begge siteringsmåter, dvs. «in-line» og på slutten av setningen. Prøv å variere siteringsteknikk for å få flyt i språket.
+I tillegg introduserer @goodman2016b begrepene **robusthet** og **generaliserbarhet**. Robusthet viser til hvor stabile forskningskonklusjoner er når man varierer grunnantagelser eller eksperimentelle prosedyrer, mens generaliserbarhet (også kalt transportabilitet) handler om hvorvidt en effekt består i andre settinger enn den opprinnelige eksperimentelle rammen. Disse begrepene brukes noen ganger i stedet for «reproduserbarhet», men viser egentlig til beslektede, men distinkte aspekter ved kvaliteten på forskning.
 
-Example:
+#### Problematikken
 
-@gentleman2003 hevder at bla bla bla. Andre mener imidlertid bla bla [@goodman2016b; @ioannidis2005b].
+Problemene knyttet til manglende reproduserbarhet og publiseringsskjevhet har vært diskutert i flere tiår. Allerede i 1979 beskjrev @rosenthal1979 "**file drawer problem"**, nemlig at studier med ikke-signifikante resultater, hvor nullhypotesen ikke forkastes, ofte ikke blir publisert, men "havner i skuffen".
+
+McNutt (2014) peker på at moderne forskningslitteratur preges av en betydelig andel studier som ikke lar seg reprodusere, og argumenterer for at dette avdekker et behov for kulturendring i forskningen. Dette ble konkret illustrert av @opensciencecollaboration2015, som forsøkte å replikere 100 publiserte studier fra tre ledende tidsskrifter i psykologi. Mens 97 % av de originale studiene rapporterte signifikante resultater, var det kun 36 % av replikeringsforsøkene som også ga signifikante funn.
+
+Til sammen tegner disse bidragene et bilde av en forskningspraksis der både publiseringsskjevhet og lav replikasjonsrate undergraver tilliten til forskningsresultater.
+
+#### Standarder
+
+@jasny2011b omtaler replikerbarhet som "the scientific gold standard", mens @peng2011 argumenterer for at reproduserbarhet bør være et minimumskrav for publisering. Dette antyder at det eksisterer et hierarki der replikerbarhet er idealet, men der reproduserbarhet er ønsket som et praktisk og nødvendig minimum.
+
+Flere fagfelt har allerede innført konkrete krav knyttet til reproduserbarhet. Innen økonomi krever for eksempel **American Economic Association** at forfattere av empiriske, simuleringsbaserte eller eksperimentelle studier leverer data, kode og øvrige detaljer i analysene på en måte som gjør replikerbarhet mulig: «Prior to acceptance, authors of papers that contain empirical work, simulations, or experimental work must provide the data, code, and other details of the computations sufficient to permit replication» @luttmer2026.
+
+Også i norsk sammenheng får reproduserbarhet økt oppmerksomhet. Ved Universitetet i Oslo løftes åpen og reproduserbar forskning frem som en prioritet, blant annet gjennom kurs som skal forberede forskere på Forskningsrådets krav til åpen og reproduserbar forskning @UIO2023.
 
 ## Diskusjon av forskningsspørsmålet (problemstillingen)
 
-- Burde replikerbarhet være et krav eller er det å be om for mye?
-- Kan Quarto dokumenter hjelpe med å oppnå reproduserbarhet?
-- Hvilke problem gjenstår og hvordan kan disse løses?
+Arbeid med et signifikansnivå på 0,05 innebærer at vi aksepterer at 1 av 20 studier vil forkaste en sann nullhypotese - en såkalt type 1-feil. Når dette kombineres med file drawer-problemet, kan publisert litteratur ende opp med å overvurdere effekter: studier som ved en tilfeldighet finner et falskt positivt resultat, publiseres, mens tallrike ikke-signifikante studier ikke blir synlige.
+
+#### Burde replikerbarhet være et krav eller er det å be om for mye?
+
+Replikerbarhet vil gi høy grad av tillit til forskningsfunn gjennom systematisk avdekking av feil gjennom reduksjon av andel falske positive. Samtidig argumenterer både @peng2011 og @goodman2016b for at reproduserbarhet (metodens reproduserbarhet) bør være et minimumskrav for publisering. Dette kan tolkes som at replikerbarhet, selv om det er en ønsket standard, kan være for krevende som et generelt krav i alle sammenhenger.
+
+Krav om replikerbarhet og omfattende datadeling møter også praktiske og juridiske begrensninger. Deling av data kan være problematisk av hensyn til personvern, konfidensialitetsavtaler eller kommersielle interesser. Deling av kode kan på samme måte oppleves som konkurransebegrensende. I lys av dette kan et kompromiss være å kreve metodens reproduserbarhet som minimum der det er etisk gjennomførbart.
+
+#### Kan Quarto dokumenter hjelpe med å oppnå reproduserbarhet?
+
+Quarto dokumenter gjør det mulig å integrere kode, data og versjonskontroll i en fil. Dette kan senke terskelen for å oppnå metodens reproduserbarhet, fordi hele analyseprosessen kan dokumenteres og kjøres på nytt. Et godt utformet Quarto-dokument kan dermed gjøre deling av arbeidsprosessen mer sømløs og redusere risikoen for menneskelige feil når man forsøker å reprodusere analysene med egne data.
+
+@peng2011 peker nettopp på slike arbeidsmåter som en vei mot økt reproduserbarhet: "Adressing this problem will require either ... or getting researchers to use other software systems that are more amenable to reproducibility"
+
+#### Hvilke problem gjenstår og hvordan kan disse løses?
+
+Selv om verktøy som Quarto kan gjøre det teknisk enklere å tilrettelegge for reproduserbarhet, gjenstår flere strukturelle utfordringer. For det første er det fortsatt svake insentiver til å gjennomføre replikeringsstudier som primært har som mål å validere eller invalidere eksisterende forskning. Nye, positive funn belønnes ofte sterkere enn grundige replikeringsstudier i kampen om publiseringsplass og forskningsmidler. Endringer i insentivstrukturer hos tidsskrifter, finansieringskilder og institusjoner kan være nødvendige for å løfte hyppigheten av slik forskning.
+
+For det andre kan manglende kompetanse utgjøre en barriere. Forskere kan ha høy faglig ekspertise, men samtidig savne nødvendig kunnskap om programmering, versjonskontroll og dokumentasjon for å utnytte data-drevne dokumenter fullt ut. Dette kan delvis løses gjennom tverrfaglig samarbeid, men det innebærer også en risiko for at den faglige forståelsen av analysene blir svekket dersom analysearbeidet blir satt til noen uten faglig kompetanse på feltet som undersøkes. Et annet tiltak kan være å integrere opplæring i åpen og reproduserbar forskning, inkludert bruk av verktøy som Quarto, i forskerutdanningen
 
 ## Konklusjon
 
-Noen kloke ord.
+Spørsmålet om reproduserbarhet er noker vanskelig å konkludere, men dersom målet er en standard som gjør at vi kan stole 100% på forskning må svare være nei. Metodens reproduserbarhet er viktig for å kunne vurdere kvaliteten på forskning, men den er ikke tilstrekkelig til å sikre at forskningsfunn er sanne, robuste og relevante utover den konkrete studien. Uten replikerbarhet, robusthet og generaliserbarhet vil selv full åpenhet om data, kode og prosedyrer ikke kunne forhindre at falske positive, publiseringsskjevhet og svake forskningsdesign preger litteraturen.
+
+Verktøy som Quarto kan senke terskelen for å oppnå metodens reproduserbarhet ved å integrere analyse, dokumentasjon og versjonskontroll i samme arbeidsflyt. Slike tekniske løsninger kan imidlertid bare realisere sitt potensial dersom de støttes av insentiver som belønner replikeringsstudier, datadeling, grundig dokumentasjon og av opplæring som gir forskere nødvendig kompetanse.
+
+Veien videre krever derfor både teknologiske, institusjonelle og kulturelle endringer. Å etablere reproduserbarhet som et minimumskrav der det er etisk og juridisk mulig, samtidig som man legger bedre til rette for replikerbarhet og studier som undersøker robusthet og generaliserbarhet vil føre til mer tillit til forskning. Først da kan forskningssystemet i større grad levere kunnskap vi med rimelighet kan stole på.
 
 ## Referanser
 
@@ -62,10 +92,9 @@ Noen kloke ord.
 
 ## Appendiks A
 
-- Versjon nummer og referanse til R pakken brukt i dokumentet
-- R versjon brukt, med referanse
+- [@tinytex]
+- [@r-sitering]
 
 ## Appendiks B
 
-- Hvordan er KI brukt
-- Husk invitasjon til chat
+Kunstig intelligens (KI) er bruk gjennom GPT UiO som er valgt ut av HVL som personverntrygg tjeneste for studenter og ansatte. Fullstendig historikk finnes som både .md og .txt fil i dette repoet. KI er brukt for oversetting av begreper, parafrasering, tilbakemelding til innhold og sammenfletting av ønsket innhold til en sammenhengende tekst.
