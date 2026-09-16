@@ -92,10 +92,9 @@ Veien videre krever derfor både teknologiske, institusjonelle og kulturelle end
 
 ## Appendiks A
 
-- Versjon nummer og referanse til R pakken brukt i dokumentet
-- R versjon brukt, med referanse
+- [@tinytex]
+- [@r-sitering]
 
 ## Appendiks B
 
-- Hvordan er KI brukt
-- Husk invitasjon til chat
+Kunstig intelligens (KI) er bruk gjennom GPT UiO som er valgt ut av HVL som personverntrygg tjeneste for studenter og ansatte. Fullstendig historikk finnes som både .md og .txt fil i dette repoet. KI er brukt for oversetting av begreper, parafrasering, tilbakemelding til innhold og sammenfletting av ønsket innhold til en sammenhengende tekst.
